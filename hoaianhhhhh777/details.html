@@ -1,0 +1,574 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chi tiết địa điểm</title>
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f5f5f5;
+}
+
+header {
+    background: #028a0f;
+    color: white;
+    padding: 15px 0;
+    text-align: center;
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+}
+
+nav ul li {
+    display: inline;
+    margin: 0 15px;
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+}
+
+.banner {
+    text-align: center;
+    padding: 50px;
+    background: url('../images/banner.jpg') no-repeat center center/cover;
+    color: white;
+}
+
+.places {
+    text-align: center;
+    padding: 40px;
+    background: white;
+}
+
+.place {
+    display: inline-block;
+    width: 30%;
+    margin: 10px;
+    padding: 10px;
+    background: white;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+.contact form {
+    width: 50%;
+    margin: auto;
+}
+
+.contact input, .contact textarea {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+}
+
+.contact button {
+    background: #028a0f;
+    color: white;
+    padding: 10px;
+    border: none;
+    cursor: pointer;
+}
+
+footer {
+    background: #028a0f;
+    color: white;
+    text-align: center;
+    padding: 10px;
+}
+ /* Social Media Links */
+        .social-media {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 20px;
+            margin: 20px 0;
+        }
+
+        .social-media a {
+            text-decoration: none;
+            color: white;
+            font-size: 1.5em;
+            padding: 10px;
+            border-radius: 50%;
+            background-color: #ff4500;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 50px;
+            height: 50px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+        }
+
+        .social-media a:hover {
+            background-color: #d7370a;
+        }
+        footer img {
+    height: 60px; /* Đặt chiều cao logo */
+    margin-bottom: 10px; /* Khoảng cách giữa logo và nội dung */
+} 
+ body {
+            background-image: linear-gradient(to right, #4facfe, #00f2fe);
+            font-family: Arial, sans-serif;
+            color: white;
+            line-height: 1.6;
+        }
+        /* Điều chỉnh kích thước ảnh */
+        img {
+            display: block;
+            margin: 20px auto;
+            max-width: 50%;  /* Thu nhỏ ảnh lại */
+            height: auto;
+            border-radius: 8px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.7);
+            transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+        }
+
+        img:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 25px rgba(0, 0, 0, 0.8);
+        }
+
+        /* Video */
+        video {
+            display: block;
+            margin: 20px auto;
+            border-radius: 8px;
+            max-width: 30%;  /* Tăng kích thước video lên 30% */
+            height: auto;
+            transition: transform 0.3s ease-in-out;
+        }
+
+        video:hover {
+            transform: scale(1.05);
+        }
+
+        /* Liên kết */
+        a {
+            color: #FF6347;
+            text-decoration: none;
+            font-weight: bold;
+            transition: color 0.3s ease;
+        }
+
+        a:hover {
+            text-decoration: underline;
+            color: #FF4500;
+        }
+
+        /* Đảm bảo cho các thẻ heading khác */
+        h2, h3 {
+            color: #fff;
+            text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.5);
+            animation: fadeIn 2s ease-out;
+        }
+ /* Phần bình luận */
+.comment-box {
+    margin-top: 20px;
+    text-align: center;
+    background-color: rgba(255, 255, 255, 0.1);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.7);
+}
+
+#commentsSection {
+    margin-top: 20px;
+    text-align: center;
+}
+
+.comment {
+    background-color: rgba(255, 255, 255, 0.3);
+    padding: 15px;
+    border-radius: 12px;
+    margin: 10px 0;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+    transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.comment:hover {
+    background-color: rgba(255, 255, 255, 0.5);
+    transform: scale(1.05);
+    box-shadow: 0 0 20px rgba(255, 165, 0, 0.6);
+}
+
+.comment .name {
+    font-weight: bold;
+    color: #FF6347;
+    font-size: 1.3em;
+    transition: color 0.3s ease;
+}
+
+.comment .name:hover {
+    color: #FFD700;
+}
+
+.comment .text {
+    margin-top: 5px;
+    color: #FFD700;
+    font-size: 1.1em;
+    transition: color 0.3s ease;
+}
+
+.comment .text:hover {
+    color: #FF4500;
+}
+
+.comment .delete-button {
+    color: #FF6347;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    font-weight: bold;
+    margin-top: 10px;
+    font-size: 1.2em;
+    transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.comment .delete-button:hover {
+    color: #FF4500;
+    text-decoration: underline;
+    transform: scale(1.1);
+}
+
+/* Phần bình luận */
+.comment-box input, .comment-box textarea {
+    padding: 10px;
+    border-radius: 8px;
+    border: 2px solid #FF6347;
+    width: 80%;
+    font-size: 1.2em;
+    margin-bottom: 10px;
+    background-color: transparent;
+    color: #fff;
+}
+
+.comment-box input:focus, .comment-box textarea:focus {
+    outline: none;
+    border-color: #FFD700;
+}
+
+.comment-box button {
+    background-color: #FF6347;
+    color: black;
+    padding: 10px 20px;
+    border-radius: 8px;
+    border: none;
+    cursor: pointer;
+    font-size: 1.2em;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.comment-box button:hover {
+    background-color: #FF4500;
+    transform: scale(1.05);
+}      
+h6
+{color: black;font-size: 20px}
+</style>
+</head>
+<body>
+
+    <header>
+        <h1>Chi tiết địa điểm</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html">Trang chủ</a></li>
+                <li><a href="details.html">Địa điểm</a></li>
+                <li><a href="contact.html">Liên hệ</a></li>
+            </ul>
+        </nav>
+    </header>
+ <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item"><a class="nav-link" href="#highlights">Các Điểm Tham Quan</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#itinerary">Lịch Trình</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#map">Bản Đồ</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#info">Giá Vé & Giờ Mở Cửa</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#reviews">Đánh Giá</a></li>
+                    
+                </ul>
+            </div>
+        </div>
+    </nav>
+        <!-- Các Điểm Tham Quan -->
+<section id="highlights" class="container my-5">
+    <h2 class="text-center">Các Điểm Tham Quan Nổi Tiếng</h2>
+    <div class="row mt-4">
+        <div class="col-md-4 text-center">
+            <h4>Cồn Phụng</h4>
+            <p>Cồn Phụng là một trong những địa điểm du lịch nổi tiếng nhất ở Bến Tre, nằm trên sông Tiền, thuộc xã Tân Thạch, huyện Châu Thành. Nơi đây không chỉ có cảnh quan thiên nhiên tươi đẹp mà còn mang đậm dấu ấn văn hóa – lịch sử của vùng đất xứ Dừa.
+
+Đặc điểm nổi bật của Cồn Phụng
+
+Phong cảnh thiên nhiên: Cồn Phụng có hệ thống kênh rạch chằng chịt, cây trái sum suê và không khí trong lành, tạo nên một không gian đậm chất miền Tây Nam Bộ.
+
+Di tích Đạo Dừa: Cồn Phụng gắn liền với di tích của ông Nguyễn Thành Nam (còn gọi là Ông Đạo Dừa) – người sáng lập Đạo Dừa. Tại đây, du khách có thể tham quan những công trình kiến trúc độc đáo như tháp Cửu Trùng Đài, sân rồng, và khu di tích còn sót lại của giáo phái này.
+
+Trải nghiệm du lịch sinh thái: Du khách có thể ngồi thuyền chèo len lỏi qua các con rạch, tham quan vườn trái cây, thưởng thức đặc sản như kẹo dừa, trà mật ong, hoặc tham gia câu cá sấu, đi xe ngựa trên đường làng.
+
+Ẩm thực đặc sắc: Cồn Phụng nổi tiếng với các món ăn dân dã như cá tai tượng chiên xù, lẩu cá kèo, tôm càng xanh nướng, cơm dừa...
+
+
+Ý nghĩa du lịch & kinh tế
+
+Với vị trí thuận lợi gần TP. Mỹ Tho (Tiền Giang) và TP. Bến Tre, Cồn Phụng trở thành một trong những điểm du lịch sinh thái hấp dẫn, thu hút du khách trong và ngoài nước. Không chỉ góp phần phát triển ngành du lịch, nơi đây còn tạo công ăn việc làm cho người dân địa phương qua các hoạt động dịch vụ và sản xuất đặc sản.</p>
+          <section class="video-container">
+        <video controls>
+            <source src="video/conphung.mp4" type="video/mp4">
+            Trình duyệt của bạn không hỗ trợ video.
+        </video>
+    </section>
+    </section>
+            <div class="details mt-3">
+                <p><strong>Đặc điểm nổi bật của Cồn Phụng:</strong></p>
+                <ul>
+                    <li><strong>Phong cảnh thiên nhiên:</strong> Hệ thống kênh rạch chằng chịt, cây trái sum suê và không khí trong lành, tạo nên một không gian đậm chất miền Tây Nam Bộ.</li>
+                    <li><strong>Di tích Đạo Dừa:</strong> Gắn liền với di tích của ông Nguyễn Thành Nam (Ông Đạo Dừa), nơi du khách có thể tham quan tháp Cửu Trùng Đài, sân rồng và các công trình độc đáo khác.</li>
+                    <li><strong>Trải nghiệm du lịch sinh thái:</strong> Du khách có thể chèo thuyền, tham quan vườn trái cây, thưởng thức đặc sản như kẹo dừa, trà mật ong, câu cá sấu, hay đi xe ngựa trên đường làng.</li>
+                    <li><strong>Ẩm thực đặc sắc:</strong> Các món ăn như cá tai tượng chiên xù, lẩu cá kèo, tôm càng xanh nướng, cơm dừa là đặc sản không thể bỏ qua.</li>
+                </ul>
+            </div>
+        </div>
+        <div class="col-md-4 text-center">
+            <h4>Cồn Nhàn</h4>
+            <p>Cồn Nhàn là một trong những cồn nổi tiếng thuộc huyện Ba Tri tỉnh Bến Tre. Đây là một vùng đất bồi nằm ven cửa biển, nơi có phong cảnh thiên nhiên hoang sơ, bãi bồi rộng lớn và hệ sinh thái đặc trưng của vùng sông nước miền Tây.
+
+Đặc điểm nổi bật của Cồn Nhàn:
+
+Cảnh quan thiên nhiên: Cồn Nhàn có bãi bồi rộng lớn với bãi cát mịn và hệ sinh thái ngập mặn phong phú. Đây là nơi lý tưởng để tham quan, trải nghiệm du lịch sinh thái.
+
+Nguồn lợi thủy sản: Vùng này nổi tiếng với các loại hải sản tươi ngon như nghêu, sò, cá kèo, cua biển… Đây cũng là nơi khai thác và nuôi trồng thủy sản quan trọng của Bến Tre.
+
+Hoạt động du lịch & trải nghiệm: Du khách đến đây có thể tham gia các hoạt động như bắt nghêu, câu cá, thưởng thức hải sản tươi sống và khám phá cuộc sống của ngư dân địa phương.
+
+
+Ý nghĩa kinh tế & du lịch
+
+Cồn Nhàn không chỉ là điểm đến hấp dẫn với du khách yêu thiên nhiên mà còn đóng vai trò quan trọng trong phát triển kinh tế biển của Bến Tre. Với tiềm năng lớn về du lịch sinh thái và nuôi trồng thủy sản, nơi đây góp phần tạo công ăn việc làm và phát triển đời sống người dân địa phương.</p>
+            <section class="video-container">
+        <video controls>
+            <source src="video/connhan.mp4" type="video/mp4">
+            Trình duyệt của bạn không hỗ trợ video.
+        </video>
+    </section>
+            <div class="details mt-3">
+                <p><strong>Đặc điểm nổi bật của Cồn Nhàn:</strong></p>
+                <ul>
+                    <li><strong>Cảnh quan thiên nhiên:</strong> Bãi bồi rộng lớn, bãi cát mịn và hệ sinh thái ngập mặn phong phú, lý tưởng cho du lịch sinh thái.</li>
+                    <li><strong>Nguồn lợi thủy sản:</strong> Nổi tiếng với các loại hải sản tươi ngon như nghêu, sò, cá kèo, cua biển, là nơi khai thác và nuôi trồng thủy sản quan trọng của Bến Tre.</li>
+                    <li><strong>Hoạt động du lịch & trải nghiệm:</strong> Du khách có thể tham gia các hoạt động như bắt nghêu, câu cá, thưởng thức hải sản tươi sống và khám phá cuộc sống ngư dân địa phương.</li>
+                </ul>
+            </div>
+        </div>
+        <div class="col-md-4 text-center">
+            <h4>Chùa Vạn Phước</h4>
+            <p>Chùa Vạn Phước nằm tại ấp Bình Chiến, huyện Bình Đại tỉnh Bến Tre. Tọa lạc trên một khu đất rộng 12ha, chùa Vạn Phước được xem như là một trong những ngôi chùa lớn nhất Bến Tre. Nơi đây sở hữu khuôn viên cực kỳ rộng và thoáng đãng với hàng ngàn loại cây chen nhau kết hoa trái quanh năm.</p>
+             <section class="video-container">
+        <video controls>
+            <source src="video/chua.mp4" type="video/mp4">
+            Trình duyệt của bạn không hỗ trợ video.
+        </video>
+    </section>
+            <div class="details mt-3">
+                <p><strong>Điểm đặc trưng của Chùa Vạn Phước:</strong></p>
+                <ul>
+                    <li><strong>Kiến trúc nguy nga, độc đáo:</strong> Chùa được xây dựng với phong cách truyền thống kết hợp hiện đại, nổi bật với tượng Phật Thích Ca Mâu Ni cao 12m đặt ngay khuôn viên.</li>
+                    <li><strong>Không gian thanh tịnh, linh thiêng:</strong>Chùa tọa lạc giữa không gian rộng lớn, thoáng mát, bao quanh bởi cây xanh và hồ nước, mang lại cảm giác bình yên.</li>
+                    <li><strong>Trung tâm tu học và hành hương lớn:</strong> Chùa thường xuyên tổ chức các đại lễ Phật giáo như Lễ Vu Lan, Lễ Phật Đản, thu hút đông đảo tín đồ đến cầu nguyện.</li>
+                    <li><strong> Địa điểm du lịch tâm linh hấp dẫn:</strong> Du khách có thể chụp ảnh, thư giãn và tận hưởng không gian yên bình sau những ngày làm việc căng thẳng.</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+     <div class="col-md-4 text-center">
+            <h4>Bảo tàn Bến Tre</h4>
+            <p>Bảo tàng tỉnh Bến Tre có quy mô lớn khoảng 13ha. Bảo tàng được xây dựng theo kiểu kiến trúc của Pháp cùng những cánh cửa có hình vòm.
+Bảo tàng có 1 tầng trệt và 1 tầng lầu, là nơi trưng bày nhiều hình ảnh và hiện vật là những truyền thống cách mạng của tỉnh Bến Tre trong hai cuộc kháng chiến chống Pháp và chống Mỹ.
+Du khách đi từ ngoài vào có thể quan sát được hình ảnh của người chiến sĩ tình báo Phạm Ngọc Thảo và các vị anh hùng chiến sĩ khác trong thời kỳ kháng chiến.</p>
+             <section class="video-container">
+        <video controls>
+            <source src="video/baotang.mp4" type="video/mp4">
+            Trình duyệt của bạn không hỗ trợ video.
+        </video>
+    </section>
+            <div class="details mt-3">
+                <p><strong>Điểm đặc trưng của Bảo tàn Bến Tre:</strong></p>
+                <ul>
+                    <li><strong>Kiến trúc cổ kính, ấn tượng:</strong> Bảo tàng nằm trong một tòa nhà có từ thời Pháp thuộc, mang phong cách kiến trúc phương Tây kết hợp với nét đặc trưng Á Đông.</li>
+                    <li><strong>Lưu giữ nhiều hiện vật giá trị:</strong> Bảo tàng trưng bày hơn 2.000 hiện vật, hình ảnh và tư liệu quý về lịch sử, văn hóa, và cuộc sống của người dân Bến Tre.</li>
+                    <li><strong>Tái hiện lịch sử hào hùng:</strong>Một trong những khu trưng bày quan trọng nhất là lịch sử đấu tranh cách mạng của Bến Tre, đặc biệt là trong Phong trào Đồng Khởi năm 1960.</li>
+                    <li><strong> Điểm tham quan, học tập bổ ích:</strong> Bảo tàng là địa điểm lý tưởng cho học sinh, sinh viên và du khách muốn tìm hiểu về lịch sử, văn hóa Bến Tre.</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+      <!-- Lịch Trình -->
+<section id="itinerary" class="bg-light py-5">
+    <div class="container">
+        <h2 class="text-center">Gợi Ý Lịch Trình Tham Quan</h2>
+        <p>Gợi ý lịch trình du lịch từ 1 ngày đến 3 ngày tại Bến Tre. Lịch trình được thiết kế giúp du khách tận hưởng vẻ đẹp thiên nhiên, trải nghiệm văn hóa đặc sắc và khám phá những điểm đến nổi tiếng tại xứ dừa.</p>
+        
+        <h3><strong>Ngày 1:</strong> Khám Phá Cồn Phụng và Vùng Sông Nước</h3>
+        <ul>
+            <li><strong>Sáng:</strong> Bắt đầu ngày mới bằng chuyến tham quan Cồn Phụng – điểm đến nổi tiếng với cảnh quan sông nước hữu tình. Du khách có thể đi thuyền chèo qua các kênh rạch, tham quan các di tích Đạo Dừa như Tháp Cửu Trùng Đài và sân Rồng. </li>
+            <li><strong>Trưa:</strong> Dùng bữa trưa tại một nhà hàng địa phương, thưởng thức các món đặc sản như cá tai tượng chiên xù, tôm càng xanh nướng.</li>
+            <li><strong>Chiều:</strong> Tham gia các hoạt động như câu cá, thưởng thức trà mật ong hoặc kẹo dừa, tham quan vườn trái cây đặc trưng của miền Tây. Tiếp tục khám phá các khu vực xung quanh, tận hưởng không khí trong lành và yên bình.</li>
+        </ul>
+
+        <h3><strong>Ngày 2:</strong> Cồn Nhàn và Du Lịch Sinh Thái</h3>
+        <ul>
+            <li><strong>Sáng:</strong> Di chuyển tới Cồn Nhàn, tham gia trải nghiệm du lịch sinh thái độc đáo. Du khách có thể tham gia hoạt động bắt nghêu, câu cá, hoặc tham gia vào cuộc sống thường nhật của người dân địa phương.</li>
+            <li><strong>Trưa:</strong> Thưởng thức hải sản tươi sống với các món như nghêu hấp, cua biển, sò điệp nướng… tại nhà hàng địa phương.</li>
+            <li><strong>Chiều:</strong> Tự do tham quan và khám phá vùng đất ngập mặn tại Cồn Nhàn, tìm hiểu về hệ sinh thái phong phú và thư giãn với các hoạt động dân dã như chèo thuyền hoặc tham gia các trò chơi thú vị của ngư dân.</li>
+        </ul>
+
+        <h3><strong>Ngày 3:</strong> Tham quan bảo tàng Bến Tre và Chùa Vạn Phước</h3>
+        <ul>
+            <li><strong>Sáng:</strong> Ăn sáng tại TP. Bến Tre,tham quan Bảo tàng Bến TreKhám phá các khu trưng bày về lịch sử, văn hóa, phong trào Đồng Khởi, nghề dừa,chụp ảnh và tìm hiểu thêm về truyền thống địa phương.</li>
+            <li><strong>Trưa:</strong>  Di chuyển từ TP. Bến Tre đến Chùa Vạn Phước,ăn trưa tại Bình Đại,nghỉ ngơi, thư giãn.</li>
+            <li><strong>Chiều:</strong> Tham quan & chiêm bái tại Chùa Vạn Phước,dạo quanh khuôn viên rộng lớn, ngắm nhìn kiến trúc chùa và tượng Phật Thích Ca cao 12m.Viếng chánh điện, lễ Phật, cầu bình an,chụp ảnh lưu niệm, thư giãn trong không gian thanh tịnh..</li>
+        </ul>
+        
+        <h3><strong>Lưu ý:</strong></h3>
+        <ul>
+            <li>Đảm bảo mang theo nước uống và kem chống nắng khi tham gia các hoạt động ngoài trời.</li>
+            <li>Du khách nên lên kế hoạch di chuyển hợp lý giữa các điểm tham quan để tiết kiệm thời gian và có những trải nghiệm tốt nhất.</li>
+            <li>Chắc chắn không bỏ lỡ những món ăn đặc sản tại địa phương, mỗi món đều mang đậm hương vị miền Tây.</li>
+        </ul>
+    </div>
+    <!-- Bản Đồ -->
+<section id="map" class="py-5">
+    <div class="container">
+        <h2 class="text-center">Bản Đồ Các Điểm Tham Quan</h2>
+
+        <!-- Cồn Phụng -->
+        <h4>Cồn Phụng</h4>
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3925.064529877003!2d106.36616077491405!3d10.336721089786586!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x310aaf9861803419%3A0xe04989a08949b954!2zQ-G7kk4gUEjhu6RORyBUT1VSSVNUIEtodSB2dWkgY2jGoWkgdsOgIGR1IGzhu4tjaCBC4bq_biBUcmU!5e0!3m2!1svi!2s!4v1738594764055!5m2!1svi!2s" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+ <!-- Cồn Nhàn -->
+        <h4>Cồn Nhàn</h4>
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15716.008870517857!2d106.67809794636567!3d10.016674641431612!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x319ffa9b2c3b71db%3A0x3fa11cf297365fec!2zS2h1IER1IEzhu4tjaCBU4bqvbSBCaeG7g24gQ-G7k24gTmjDoG4!5e0!3m2!1svi!2s!4v1738595392347!5m2!1svi!2s" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        <!-- Chùa Vạn Phước -->
+        <h4>Chùa Vạn Phước</h4>
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3927.20597349383!2d106.70403237491148!3d10.163906289950017!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x319ffd46b2abd9b5%3A0x99794a899d1154c7!2zQ2jDuWEgVuG6oW4gUGjGsOG7m2M!5e0!3m2!1svi!2s!4v1738594798986!5m2!1svi!2s" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+
+        <!-- Bảo tàn Bến Tre -->
+        <h4>Bảo tàn Bến Tre</h4>
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3926.3300853139203!2d106.37158217491253!3d10.234939489882773!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x310aa85c3fc00d0f%3A0x1107cf4ce5f17a01!2zQuG6o28gVGHMgG5nIFRpzIluaCBC4bq_biBUcmU!5e0!3m2!1svi!2s!4v1738595010179!5m2!1svi!2s" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+    </div>
+</section>
+</section>
+<!-- Giá Vé & Giờ Mở Cửa -->
+    <section id="info" class="bg-light py-5">
+        <div class="container">
+            <h2 class="text-center">Giá Vé & Giờ Mở Cửa</h2>
+            <ul>
+                <li><strong>Cồn Phụng:</strong> Giá vé 100.000 VNĐ, mở cửa 8:00 - 17:00.</li>
+                <li><strong>Cồn nhàn:</strong> Giá vé miễn phí, mở cửa cả ngày.</li>
+                <li><strong>Chùa Vạn Phước:</strong> Giá vé miễn phí, mở cửa Mở cửa cả ngày.</li>
+                <li><strong>Bảo tàn Bến Tre:</strong> Giá vé người lớn: 50.000 đồng/vé vào,Trẻ em: 20.000 đồng/vé vào, 7h00-17h00 hàng ngày.</li>
+            </ul>
+        </div>
+    </section>
+ <!-- Đánh giá -->
+    <section id="reviews" class="container py-5">
+        <h6>Bình luận</h6>
+    <!-- Form nhập bình luận -->
+    <div class="comment-box">
+        <input type="text" id="commentName" placeholder="Nhập tên của bạn" /><br>
+        <textarea id="commentBox" placeholder="Nhập bình luận của bạn..."></textarea><br>
+        <button onclick="addComment()">Gửi bình luận</button>
+    </div>
+
+    <div id="commentsSection">
+        <!-- Bình luận sẽ được hiển thị tại đây -->
+    </div>
+            <!-- Bình luận sẽ được hiển thị tại đây -->
+        </div>
+    </section>
+
+    < <!-- Footer -->
+    <footer class="bg-dark text-white text-center p-3">
+        <img src="images/logo.jpg" alt="Logo" class="logo mb-2">
+        <p5>&copy; 2025 Điểm Tham Quan Bến Tre.Thiết kế bởi Nhóm 7/12C1</p>
+    </footer>
+
+    <script src="js/script.js"></script>
+  <script>
+       // Lấy các bình luận từ localStorage và hiển thị chúng
+    function loadComments() {
+        const comments = JSON.parse(localStorage.getItem('comments')) || [];
+        const commentsSection = document.getElementById('commentsSection');
+        commentsSection.innerHTML = '';
+
+        comments.forEach(function(comment, index) {
+            const commentElement = document.createElement('div');
+            commentElement.classList.add('comment');
+
+            const nameElement = document.createElement('div');
+            nameElement.classList.add('name');
+            nameElement.textContent = comment.name;
+
+            const textElement = document.createElement('div');
+            textElement.classList.add('text');
+            textElement.textContent = comment.text;
+
+            const deleteButton = document.createElement('button');
+            deleteButton.classList.add('delete-button');
+            deleteButton.textContent = 'Xóa';
+            deleteButton.onclick = function() {
+                deleteComment(index);
+            };
+
+            commentElement.appendChild(nameElement);
+            commentElement.appendChild(textElement);
+            commentElement.appendChild(deleteButton);
+            commentsSection.appendChild(commentElement);
+        });
+    }
+
+    // Thêm bình luận vào localStorage
+    function addComment() {
+        const name = document.getElementById('commentName').value.trim();
+        const commentText = document.getElementById('commentBox').value.trim();
+
+        if (name && commentText) {
+            const comments = JSON.parse(localStorage.getItem('comments')) || [];
+            comments.push({ name: name, text: commentText });
+            localStorage.setItem('comments', JSON.stringify(comments));
+
+            document.getElementById('commentName').value = ''; // Xóa tên
+            document.getElementById('commentBox').value = ''; // Xóa bình luận
+            loadComments(); // Cập nhật danh sách bình luận
+        } else {
+            alert("Vui lòng nhập tên và bình luận!");
+        }
+    }
+
+    // Xóa bình luận khỏi localStorage
+    function deleteComment(index) {
+        const comments = JSON.parse(localStorage.getItem('comments')) || [];
+        comments.splice(index, 1);
+        localStorage.setItem('comments', JSON.stringify(comments));
+        loadComments(); // Cập nhật lại danh sách bình luận
+    }
+
+    // Gọi loadComments khi trang tải
+    window.onload = loadComments;
+</script>
+</body>
+</html>

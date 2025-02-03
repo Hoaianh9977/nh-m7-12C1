@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Du lịch Bến Tre</title>
+    <link rel="stylesheet" href="css/style.css">
+     <style>
+        body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f5f5f5;
+}
+
+header {
+    background: #028a0f;
+    color: white;
+    padding: 15px 0;
+    text-align: center;
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+}
+
+nav ul li {
+    display: inline;
+    margin: 0 15px;
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+}
+.banner {
+    text-align: center;
+    padding: 50px;
+    background: url('../images/banner.jpg') no-repeat center center/cover;
+    color: white;
+}
+
+.places {
+    text-align: center;
+    padding: 40px;
+    background: white;
+}
+
+.place {
+    display: inline-block;
+    width: 30%;
+    margin: 10px;
+    padding: 10px;
+    background: white;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+.contact form {
+    width: 50%;
+    margin: auto;
+}
+
+.contact input, .contact textarea {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+}
+
+.contact button {
+    background: #028a0f;
+    color: white;
+    padding: 10px;
+    border: none;
+    cursor: pointer;
+}
+
+footer {
+    background: #028a0f;
+    color: white;
+    text-align: center;
+    padding: 10px;
+}
+ 
+        /* Hiệu ứng gõ chữ */
+        .typing {
+            font-size: 60px;
+            font-weight: bold;
+            color: #fff;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6);
+            white-space: nowrap;
+            overflow: hidden;
+            border-right: 0.15em solid #FF6347;
+            animation: typing 3.5s steps(40, end), blink-caret 0.75s step-end infinite;
+            padding: 20px;
+            margin: 20px;
+            transition: color 0.3s ease;
+        }
+
+        @keyframes typing {
+            from { width: 0 }
+            to { width: 100% }
+        }
+
+        @keyframes blink-caret {
+            from, to { border-color:#00F5FF; }
+            50% { border-color: #00F5FF; }
+        }
+         /* Điều chỉnh kích thước ảnh */
+        img {
+            display: block;
+            margin: 20px auto;
+            max-width: 50%;  /* Thu nhỏ ảnh lại */
+            height: auto;
+            border-radius: 8px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.7);
+            transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+        }
+
+        img:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 25px rgba(0, 0, 0, 0.8);
+        }
+
+        /* Video */
+        video {
+            display: block;
+            margin: 20px auto;
+            border-radius: 8px;
+            max-width: 50%;  /* Tăng kích thước video lên 30% */
+            height: auto;
+            transition: transform 0.3s ease-in-out;
+        }
+
+        video:hover {
+            transform: scale(1.05);
+        }
+
+        /* Liên kết */
+        a {
+            color: #FF6347;
+            text-decoration: none;
+            font-weight: bold;
+            transition: color 0.3s ease;
+        }
+
+        a:hover {
+            text-decoration: underline;
+            color: #FF4500;
+        }
+
+        /* Đảm bảo cho các thẻ heading khác */
+        h2, h3 {
+            color: #fff;
+            text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.5);
+            animation: fadeIn 2s ease-out;
+        }
+ /* Phần bình luận */
+.comment-box {
+    margin-top: 20px;
+    text-align: center;
+    background-color: rgba(255, 255, 255, 0.1);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.7);
+}
+
+#commentsSection {
+    margin-top: 20px;
+    text-align: center;
+}
+
+.comment {
+    background-color: rgba(255, 255, 255, 0.3);
+    padding: 15px;
+    border-radius: 12px;
+    margin: 10px 0;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+    transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.comment:hover {
+    background-color: rgba(255, 255, 255, 0.5);
+    transform: scale(1.05);
+    box-shadow: 0 0 20px rgba(255, 165, 0, 0.6);
+}
+
+.comment .name {
+    font-weight: bold;
+    color: #FF6347;
+    font-size: 1.3em;
+    transition: color 0.3s ease;
+}
+
+.comment .name:hover {
+    color: #FFD700;
+}
+
+.comment .text {
+    margin-top: 5px;
+    color: #FFD700;
+    font-size: 1.1em;
+    transition: color 0.3s ease;
+}
+
+.comment .text:hover {
+    color: #FF4500;
+}
+
+.comment .delete-button {
+    color: #FF6347;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    font-weight: bold;
+    margin-top: 10px;
+    font-size: 1.2em;
+    transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.comment .delete-button:hover {
+    color: #FF4500;
+    text-decoration: underline;
+    transform: scale(1.1);
+}
+
+/* Phần bình luận */
+.comment-box input, .comment-box textarea {
+    padding: 10px;
+    border-radius: 8px;
+    border: 2px solid #FF6347;
+    width: 80%;
+    font-size: 1.2em;
+    margin-bottom: 10px;
+    background-color: transparent;
+    color: #fff;
+}
+
+.comment-box input:focus, .comment-box textarea:focus {
+    outline: none;
+    border-color: #FFD700;
+}
+
+.comment-box button {
+    background-color: #FF6347;
+    color: black;
+    padding: 10px 20px;
+    border-radius: 8px;
+    border: none;
+    cursor: pointer;
+    font-size: 1.2em;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.comment-box button:hover {
+    background-color: #FF4500;
+    transform: scale(1.05);
+}
+ body {
+            background-image: linear-gradient(to right, #4facfe, #00f2fe);
+            font-family: Arial, sans-serif;
+            color: white;
+            line-height: 1.6;
+        }
+
+h2
+{color: black;font-size: 60px}
+p
+{color: black;font-size: 20px}
+footer img {
+    height: 60px; /* Đặt chiều cao logo */
+    margin-bottom: 10px; /* Khoảng cách giữa logo và nội dung */
+}
+h3
+{color: black;font-size: 50px}
+h6
+{color: black;font-size: 20px}
+</style>
+
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+</head>
+<body>
+<div class="typing">CHÀO MỪNG CÁC BẠN ĐẾN VỚI BẾN TRE</div>
+
+<style>
+  .typing {
+    color: green; /* Thay đổi màu chữ */
+    font-size: 70px;
+    font-weight: bold;
+  }
+</style>
+
+    <!-- Header -->
+    <header>
+        <h1>Khám phá Bến Tre</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html">Trang chủ</a></li>
+                <li><a href="details.html">Địa điểm</a></li>
+                <li><a href="contact.html">Liên hệ</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Banner -->
+    <section class="banner">
+        <h2>Trải nghiệm vẻ đẹp của Bến Tre</h2>
+        <p>Bến Tre gió mát trăng thanh</p>
+             <p>  Sông dài nước chảy trong xanh lững lờ</p>
+            <p>  Dừa xanh bóng ngả đôi bờ</p>
+            <p>  Trĩu cành trái ngọt, lững lờ mái che
+</p>
+    </section>
+
+    <!-- Danh sách địa điểm -->
+    <section class="places">
+        <h3>Địa điểm tham quan nổi bật</h3>
+        <div class="place-list">
+            <div class="place">
+                <img src="https://gaohouse.vn/wp-content/uploads/2023/07/khu_du_lich_con_phung_de3cc60e04844e7da58abea32a4ddecd_grande.jpg" alt="Cồn Phụng" class="img-fluid rounded mb-3" alt="Cồn Phụng">
+                <h3>Cồn Phụng</h3>
+                <p2>Khu du lịch sinh thái nổi tiếng.</p>
+            </div>
+            <div class="place">
+                <img src="https://www.homepaylater.vn/static/f9c57a566e98130e05233cf1b175247a/81d53/kham_pha_khu_du_lich_bien_con_nhan_ben_tre_73fd89406d.jpg" alt="Cồn nhàn">
+                <h3>Cồn nhàn</h3>
+                <p3>Khu du lịch tắm biển nổi tiếng.</p>
+            </div>
+            
+            <div class="place">
+                <img src="https://r2.nucuoimekong.com/wp-content/uploads/chua-van-phuoc-1.jpg" alt="Chùa Vạn Phước">
+                <h3>Chùa Vạn Phước</h3>
+                <p3>Tiên cảnh chốn trần gian tại Bến Tre</p>
+            </div>
+            <div class="place">
+                <img src="https://mia.vn/media/uploads/blog-du-lich/tham-bao-tang-ben-tre-kham-pha-lich-su-van-hoa-xu-dua-03-1668473926.jpeg" alt="Bảo tàn Bến Tre">
+                <h3>Bảo tàn Bến Tre</h3>
+                <p3>Nơi cất giữ nét đẹp văn hóa và lịch sử xứ dừa.</p>
+            </div>
+        </div>
+    </section>
+    <!-- Đánh giá -->
+    <section id="reviews" class="container py-5">
+        <h6>Bình luận</h6>
+    <!-- Form nhập bình luận -->
+    <div class="comment-box">
+        <input type="text" id="commentName" placeholder="Nhập tên của bạn" /><br>
+        <textarea id="commentBox" placeholder="Nhập bình luận của bạn..."></textarea><br>
+        <button onclick="addComment()">Gửi bình luận</button>
+    </div>
+
+    <div id="commentsSection">
+        <!-- Bình luận sẽ được hiển thị tại đây -->
+    </div>
+            <!-- Bình luận sẽ được hiển thị tại đây -->
+        </div>
+    </section>
+
+    < <!-- Footer -->
+    <footer class="bg-dark text-white text-center p-3">
+        <img src="images/logo.jpg" alt="Logo" class="logo mb-2">
+        <p5>&copy; 2025 Điểm Tham Quan Bến Tre.Thiết kế bởi Nhóm 7/12C1</p>
+    </footer>
+
+    <script src="js/script.js"></script>
+  <script>
+       // Lấy các bình luận từ localStorage và hiển thị chúng
+    function loadComments() {
+        const comments = JSON.parse(localStorage.getItem('comments')) || [];
+        const commentsSection = document.getElementById('commentsSection');
+        commentsSection.innerHTML = '';
+
+        comments.forEach(function(comment, index) {
+            const commentElement = document.createElement('div');
+            commentElement.classList.add('comment');
+
+            const nameElement = document.createElement('div');
+            nameElement.classList.add('name');
+            nameElement.textContent = comment.name;
+
+            const textElement = document.createElement('div');
+            textElement.classList.add('text');
+            textElement.textContent = comment.text;
+
+            const deleteButton = document.createElement('button');
+            deleteButton.classList.add('delete-button');
+            deleteButton.textContent = 'Xóa';
+            deleteButton.onclick = function() {
+                deleteComment(index);
+            };
+
+            commentElement.appendChild(nameElement);
+            commentElement.appendChild(textElement);
+            commentElement.appendChild(deleteButton);
+            commentsSection.appendChild(commentElement);
+        });
+    }
+
+    // Thêm bình luận vào localStorage
+    function addComment() {
+        const name = document.getElementById('commentName').value.trim();
+        const commentText = document.getElementById('commentBox').value.trim();
+
+        if (name && commentText) {
+            const comments = JSON.parse(localStorage.getItem('comments')) || [];
+            comments.push({ name: name, text: commentText });
+            localStorage.setItem('comments', JSON.stringify(comments));
+
+            document.getElementById('commentName').value = ''; // Xóa tên
+            document.getElementById('commentBox').value = ''; // Xóa bình luận
+            loadComments(); // Cập nhật danh sách bình luận
+        } else {
+            alert("Vui lòng nhập tên và bình luận!");
+        }
+    }
+
+    // Xóa bình luận khỏi localStorage
+    function deleteComment(index) {
+        const comments = JSON.parse(localStorage.getItem('comments')) || [];
+        comments.splice(index, 1);
+        localStorage.setItem('comments', JSON.stringify(comments));
+        loadComments(); // Cập nhật lại danh sách bình luận
+    }
+
+    // Gọi loadComments khi trang tải
+    window.onload = loadComments;
+</script>
+</body>
+</html>
